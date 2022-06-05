@@ -7,7 +7,7 @@ socket.on("message", (msg) => {
   console.log(msg)
 })
 
-function App() {
+const App = (): React.ReactElement => {
 
   return (
     <div className="App">
