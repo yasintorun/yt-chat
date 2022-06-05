@@ -12,6 +12,6 @@ This application is my __chat client__ project.
 
 - React ✨
 - TypeScript 🎉
-- Bootstrap 🎨
-- Styled Components 💅
+- Material UI 🎨
+- Emotion 💅
 - Socket.io-Client 💬
