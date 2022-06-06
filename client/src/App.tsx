@@ -1,23 +1,23 @@
-import { Button } from '@mui/material'
 import React from 'react'
-import io from 'socket.io-client'
 import ChangeThemeButton from './components/ChangeThemeButton'
-import { THEMES } from './constants'
-import {useStore} from './store/store'
+import ChatPage from './pages/ChatPage';
+import LandingPage from './pages/LandingPage'
 
-const socket = io("http://localhost:4001")
+// const socket = io("http://localhost:4001")
 
-socket.on("message", (msg) => {
-  console.log(msg)
-})
+// socket.on("message", (msg) => {
+//   console.log(msg)
+// })
 
 const App = (): React.ReactElement => {
 
   return (
     <div className="App">
       <ChangeThemeButton />
+      <ChatPage />
+      {/* <LandingPage /> */}
     </div>
   );
 }
 
-export default App;
+export default App; 
