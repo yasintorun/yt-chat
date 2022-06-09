@@ -23,11 +23,11 @@ app.get('/', (req, res) => {
         message: "Welcome to the chat",
         status: true,
     })
-  });
+});
 
 channel.on("connection", socket => {
     console.log("BAGLANDI: " + socket.id)
-    
+
     socket.on("disconnect", () => {
         console.log("BAGLANTI KOPTU: " + socket.id)
     })
