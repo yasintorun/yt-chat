@@ -1,19 +1,17 @@
 import socketIO from "socket.io";
-import { Room } from "./Room";
-import { User } from "./User";
-
+import { Room } from "./models/Room";
+import { User } from "./models/User";
+import {v4} from 'uuid'
 export class RoomManager {
-    private channel: socketIO.Server = null;
     private rooms: Room[] = [];
-    // private roomId: number = 0;
 
-    public constructor(channel: socketIO.Server) {
-        this.channel = channel;
+    public joinRoom() {
+
     }
 
     public createRoom(name: string, maxUser: number, owner: User): Room {
         const room: Room = {
-            id: 1,
+            id: v4(), 
             name,
             maxUser,
             users: [owner],
@@ -32,7 +30,7 @@ export class RoomManager {
         room.users = room.users.filter(u => u.id !== user.id);
     }
 
-    public getRoomById(id: number): Room | undefined {
+    public getRoomById(id: string): Room | undefined {
         return this.rooms.find(r => r.id === id);
     }
 
