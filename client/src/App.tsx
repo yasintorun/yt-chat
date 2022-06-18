@@ -14,8 +14,8 @@ const App = (): React.ReactElement => {
   return (
     <div className="App">
       <ChangeThemeButton />
-      <ChatPage />
-      {/* <LandingPage /> */}
+      {/* <ChatPage /> */}
+      <LandingPage />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { Button, Container, Divider, Grid, Paper, TextField, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { io } from 'socket.io-client';
 import Message from '../components/Message';
 
 const EditablePaper = styled(Paper)(({ theme }) => ({
@@ -9,6 +10,11 @@ const EditablePaper = styled(Paper)(({ theme }) => ({
 }));
 
 const ChatPage = () => {
+
+  useEffect(() => {
+    const socket = io("http://localhost:4001")
+  }, [])
+
   return (
     <div>
       <Container
@@ -20,9 +26,9 @@ const ChatPage = () => {
         }}
       >
         <Grid container sx={{ height: "100%", marginTop: 0 }}>
-          <Grid item sm={8} sx={{height: "100%"}}>
-            <div style={{paddingBottom: 10, height: "100%", marginBottom: 0, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-              <div style={{flex: 1, height: "100%", overflow: "auto", padding: "0px 20px"}}>
+          <Grid item sm={8} sx={{ height: "100%" }}>
+            <div style={{ paddingBottom: 10, height: "100%", marginBottom: 0, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+              <div style={{ flex: 1, height: "100%", overflow: "auto", padding: "0px 20px" }}>
                 <Message
                   username='Yasin Torun'
                   text="Merhaba arkadaşlar"
@@ -69,12 +75,12 @@ const ChatPage = () => {
                   color="red"
                 />
               </div>
-              <EditablePaper elevation={0}> 
-                  <TextField label="Mesaj yazınız.." fullWidth />
+              <EditablePaper elevation={0}>
+                <TextField label="Mesaj yazınız.." fullWidth />
               </EditablePaper>
             </div>
           </Grid>
-          <Grid item sm={2} sx={{height: "100%", overflow: "auto"}}>
+          <Grid item sm={2} sx={{ height: "100%", overflow: "auto" }}>
             <Paper sx={{ height: "100%", padding: 2 }}>
               <Typography component="h1" variant="h4" textAlign="center" fontWeight={600} color="tomato">
                 Kullanıcılar
